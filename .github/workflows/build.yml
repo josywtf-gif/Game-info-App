@@ -32,6 +32,8 @@ jobs:
           unzip -q GameInfo.zip -d _src
 
       - name: Сборка release APK
+        env:
+          GEMINI_KEY: ${{ secrets.GEMINI_KEY }}
         run: gradle -p _src assembleRelease --no-daemon --stacktrace
 
       - name: Подготовка APK
